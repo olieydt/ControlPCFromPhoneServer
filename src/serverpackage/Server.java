@@ -1,11 +1,9 @@
 package serverpackage;
 import java.awt.AWTException;
-import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.MouseInfo;
 import java.awt.Point;
 import java.awt.Robot;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.InputEvent;
@@ -13,7 +11,6 @@ import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.PrintWriter;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
@@ -23,11 +20,8 @@ import java.net.NetworkInterface;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketAddress;
-import java.net.SocketException;
 import java.net.SocketTimeoutException;
-import java.util.Enumeration;
-import java.util.concurrent.Executors;
-import java.util.function.Consumer;
+
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -179,7 +173,7 @@ public class Server {
 				DataInputStream input;
 				byte[] received = new byte[1024];
 				input = new DataInputStream(mouseSocket.getInputStream());
-			    int lenBytes = input.read(received);
+			    input.read(received);
 			    controlMouse(new String(received));
 			    //System.out.println(new String(received));
 				mouseSocket.close();
